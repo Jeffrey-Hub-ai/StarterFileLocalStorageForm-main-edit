@@ -1,5 +1,5 @@
 //variables 
-
+const tweetList = document.getElementById('tweet-List');
 
 
 
@@ -15,6 +15,12 @@ function eventListerners(){
 //Functions
 function newTweet(e){
 e.preventDefault();
-console.log('Form Submitted');
+// read the textarea value
+const tweet = document.getElementById('tweet').value;
+// create an <li> element
+const li = document.createElement('li');
+li.textContent = tweet;
+tweetList.appendChild(li);
+
 }
 
