@@ -53,6 +53,8 @@ function removeTweet(e){
         e.target.parentElement.remove();
     }
 
+    // Remove from storage
+    removeTweetLocalStorage (e.target.parentElement.textContent);
 }
 
 //add the tweets into the local storage
@@ -96,4 +98,21 @@ function localStorageOnLoad(){
 
         tweetList.appendChild(li);
     })
+}
+
+// removes the tweet from local storage
+function removeTweetLocalStorage(tweet){
+
+    //get tweet from storage
+    let tweets = getTweetsFromStorage();
+
+    // remove the x from the tweet 
+    const tweetDelete = tweet.substring( 0 , tweet.length -1);
+    
+    // Loop throught the tweets and remove the tweet that's equal
+    tweets.forEach(function(tweetLS){
+        if (tweetDelete === tweetLS){
+            console.log('Yes');
+        }
+    });
 }
